@@ -26,7 +26,8 @@ class KtorRealtimeMessagingClient(
     override fun getGameStateStream(): Flow<GameState> {
         return flow {
             session = client.webSocketSession {
-                url("ws://192.168.0.172/play")
+                url("ws://192.168.0.172:8081/play")
+//                url("ws://https://tictactoe-hypheno.netlify.app:8081/play")
             }
             val gameStates = session!!.incoming
                 .consumeAsFlow()
